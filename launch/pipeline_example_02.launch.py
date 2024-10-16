@@ -14,8 +14,8 @@ def generate_launch_description():
     package_name = 'launch-local-3d-navigation'
     # Declare the RViz config argument
     rviz_config_arg = DeclareLaunchArgument(
-        'rvizconfig', 
-        default_value=os.path.join(get_package_share_directory(package_name), 'config', 'rviz2', 'pipeline_example_02.rviz'), 
+        'rvizconfig',
+        default_value=os.path.join(get_package_share_directory(package_name), 'config', 'rviz2', 'pipeline_example_02.rviz'),
         description='Path to the RViz config file'
     )
 
@@ -78,12 +78,6 @@ def generate_launch_description():
         ]
     )
 
-    set_goal_maker_node = Node(
-        package='rrl_spot_nav',
-        executable='set_goal_marker',
-        output='screen'
-    )
-
     return LaunchDescription([
         rviz_config_arg,
         #rviz_node,
@@ -91,8 +85,7 @@ def generate_launch_description():
         # mockup_node,
         height_mod_node,
         delayed_launch_node,
-        pose_converter_node,
-        set_goal_maker_node
+        pose_converter_node
     ])
 
 if __name__ == '__main__':
